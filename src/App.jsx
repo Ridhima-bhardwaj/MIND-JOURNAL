@@ -8,7 +8,7 @@ import { WriteEntry } from "./components/WriteEntry";
 import { ViewEntry } from "./components/ViewEntry";
 import { CalendarView } from "./components/CalendarView";
 import { Settings } from "./components/Settings";
-import Navbar from "./components/navbar";
+import Navbar from "./components/Navbar.jsx";
 import JournalCard from "./components/JournalCard";
 import MoodSelector from "./components/MoodSelector";
 import { useEntries } from "./hooks/useEntries";
