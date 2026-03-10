@@ -74,7 +74,7 @@ function App() {
   // Main layout
   return (
     <Layout currentPage={currentPage} onNavigate={handleNavigation}>
-      <Navbar />
+
 
       {currentPage === "dashboard" && (
         <div className="max-w-2xl mx-auto p-6">
