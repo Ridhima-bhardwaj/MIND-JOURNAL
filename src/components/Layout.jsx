@@ -1,9 +1,9 @@
 import React from 'react';
-import { useAuth } from '../hooks/useAuth';
+import { useAuthContext } from '../hooks/AuthProvider';
 import { Settings, Calendar, Home, PenTool, LogOut } from 'lucide-react';
 
 export function Layout({ children, currentPage = 'dashboard', onNavigate }) {
-const { user, logout } = useAuth();
+const { user, logout } = useAuthContext();
 
 const navItems = [
 { id: 'dashboard', label: 'Dashboard', icon: Home },
