@@ -77,7 +77,7 @@ export function Dashboard({ onNavigate }) {
     <div className="space-y-8">
 
       {/* Welcome Section */}
-      <div className="bg-gradient-to-r from-blue-500 via-blue-600 to-teal-600 rounded-2xl p-8 text-white">
+      <div className="bg-gradient-to-r from-blue-500 via-blue-600 to-teal-600 dark:from-blue-700 dark:via-blue-800 dark:to-teal-700 rounded-2xl p-8 text-white">
         <h1 className="text-3xl font-bold mb-2">
           {getGreeting()}, {getUserName()}!
         </h1>
@@ -107,8 +107,8 @@ export function Dashboard({ onNavigate }) {
         <div className="lg:col-span-2 space-y-6">
 
           {/* Quick Actions */}
-          <div className="bg-white rounded-xl shadow-sm border p-6">
-            <h2 className="text-xl font-semibold mb-4">
+         <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 transition-colors">
+            <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
               Quick Actions
             </h2>
 
@@ -116,7 +116,7 @@ export function Dashboard({ onNavigate }) {
 
               <button
                 onClick={() => onNavigate("write")}
-                className="flex items-center space-x-3 p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition"
+                className="flex items-center space-x-3 p-4 bg-blue-50 dark:bg-gray-700 rounded-lg hover:bg-blue-100 dark:hover:bg-gray-600 transition"
               >
                 <div className="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center">
                   <PenTool className="w-5 h-5 text-white" />
@@ -132,7 +132,7 @@ export function Dashboard({ onNavigate }) {
 
               <button
                 onClick={() => onNavigate("calendar")}
-                className="flex items-center space-x-3 p-4 bg-green-50 rounded-lg hover:bg-green-100 transition"
+                className="flex items-center space-x-3 p-4 bg-green-50 dark:bg-gray-700 rounded-lg hover:bg-green-100 dark:hover:bg-gray-600 transition"
               >
                 <div className="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center">
                   <Calendar className="w-5 h-5 text-white" />
@@ -150,9 +150,9 @@ export function Dashboard({ onNavigate }) {
           </div>
 
           {/* Recent Entries */}
-          <div className="bg-white rounded-xl shadow-sm border p-6">
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 transition-colors">
 
-            <h2 className="text-xl font-semibold mb-4">
+            <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
               Recent Entries
             </h2>
 
@@ -181,7 +181,7 @@ export function Dashboard({ onNavigate }) {
                     <div
                       key={entry.id}
                       onClick={() => onNavigate("entry", entry.id)}
-                      className="flex items-start space-x-4 p-4 border rounded-lg hover:bg-gray-50 cursor-pointer"
+                      className="flex items-start space-x-4 p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer transition"
                     >
 
                       <div
@@ -195,7 +195,7 @@ export function Dashboard({ onNavigate }) {
                           {entry.title || "Untitled Entry"}
                         </h3>
 
-                        <p className="text-sm text-gray-600 truncate mt-1">
+                        <p className="text-sm text-gray-600 dark:text-gray-300 truncate mt-1">
                           {entry.content
                             ? entry.content.substring(0, 100) + "..."
                             : "No content yet"}
@@ -235,9 +235,9 @@ export function Dashboard({ onNavigate }) {
         <div className="space-y-6">
 
           {/* Mood Trend */}
-          <div className="bg-white rounded-xl shadow-sm border p-6">
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 transition-colors">
 
-            <h3 className="text-lg font-semibold mb-4 flex items-center">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center">
               <TrendingUp className="w-5 h-5 mr-2 text-blue-500" />
               7-Day Mood Trend
             </h3>
@@ -263,13 +263,13 @@ export function Dashboard({ onNavigate }) {
           </div>
 
           {/* Daily Tip */}
-          <div className="bg-yellow-50 rounded-xl p-6 border">
+          <div className="bg-yellow-50 dark:bg-gray-800 rounded-xl p-6 border border-yellow-200 dark:border-gray-700 transition-colors">
 
             <h3 className="text-lg font-semibold mb-3">
               💡 Daily Coping Tip
             </h3>
 
-            <p className="text-sm text-gray-700">
+            <p className="text-sm text-gray-700 dark:text-gray-300">
               {randomTip}
             </p>
 
