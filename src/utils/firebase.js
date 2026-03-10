@@ -4,7 +4,7 @@ import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDkcNAHAdQoOcnlTIDad32qs2WHlC4S1o0",
+  apiKey: "AIzaSyD9FoCsNasj5ksZy0MHEd1u2gKlkmeBT1U",
   authDomain: "journal-7a6ff.firebaseapp.com",
   projectId: "journal-7a6ff",
   storageBucket: "journal-7a6ff.appspot.com",
