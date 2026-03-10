@@ -29,11 +29,12 @@ export function useEntries() {
     }
 
     setIsLoading(true);
-
+    
     const q = query(
       collection(db, "entries"),
       where("userId", "==", user.uid),
-      orderBy("createdAt", "desc")
+      orderBy("createdAt", "desc"),
+      limit(20)
     );
 
     const unsubscribe = onSnapshot(
