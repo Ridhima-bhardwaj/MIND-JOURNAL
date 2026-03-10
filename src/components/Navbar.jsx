@@ -12,23 +12,59 @@ function Navbar() {
     }
   };
 
+  // Get user display name
+  const getUserName = () => {
+    if (user?.displayName) return user.displayName;
+
+    if (user?.email) {
+      return user.email.split("@")[0];
+    }
+
+    return "User";
+  };
+
+  // First letter for avatar
+  const getInitial = () => {
+    return getUserName().charAt(0).toUpperCase();
+  };
+
   return (
     <nav className="navbar w-full shadow-md p-4 flex justify-between items-center bg-white dark:bg-gray-800 transition-colors">
+
+      {/* Logo */}
       <h1 className="text-xl font-bold text-blue-600 dark:text-blue-400">
         MindJournal
       </h1>
 
       {user && (
         <div className="flex items-center gap-4">
+
+          {/* Profile Photo OR Initial Avatar */}
+          {user.photoURL ? (
+            <img
+              src={user.photoURL}
+              alt="Profile"
+              className="w-9 h-9 rounded-full object-cover border hover:ring-2 hover:ring-blue-400 transition"
+            />
+          ) : (
+            <div className="w-9 h-9 rounded-full bg-blue-500 text-white flex items-center justify-center font-semibold hover:ring-2 hover:ring-blue-400 transition">
+              {getInitial()}
+            </div>
+          )}
+
+          {/* Greeting */}
           <span className="text-gray-700 dark:text-gray-200">
-            Hello, {user.displayName || user.email}
+            Hello, {getUserName()}
           </span>
+
+          {/* Logout Button */}
           <button
             onClick={handleLogout}
-            className="px-3 py-1 bg-red-500 hover:bg-red-600 text-white rounded-md"
+            className="px-3 py-1 bg-red-500 hover:bg-red-600 text-white rounded-md transition"
           >
             Logout
           </button>
+
         </div>
       )}
     </nav>
