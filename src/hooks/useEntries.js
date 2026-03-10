@@ -29,6 +29,7 @@ export function useEntries() {
     }
 
     setIsLoading(true);
+
     const q = query(
       collection(db, "entries"),
       where("userId", "==", user.uid),
@@ -42,6 +43,7 @@ export function useEntries() {
           id: doc.id,
           ...doc.data(),
         }));
+
         setEntries(data);
         setIsLoading(false);
       },
@@ -56,35 +58,62 @@ export function useEntries() {
 
   // Add entry
   const addEntry = async (entry) => {
-    const docRef = await addDoc(collection(db, "entries"), {
-      ...entry,
-      userId: user.uid,
-      createdAt: serverTimestamp(),
-    });
-    return docRef.id;
+    if (!user) {
+      throw new Error("User not authenticated");
+    }
+
+    try {
+      const docRef = await addDoc(collection(db, "entries"), {
+        ...entry,
+        userId: user.uid,
+        createdAt: serverTimestamp(),
+      });
+
+      return docRef.id;
+    } catch (error) {
+      console.error("Error adding entry:", error);
+      throw error;
+    }
   };
 
-  // Update entry ✅ ensures mood, title, content update
+  // Update entry
   const updateEntry = async (id, updatedData) => {
-    const entryRef = doc(db, "entries", id);
-    await updateDoc(entryRef, {
-      ...updatedData,
-      updatedAt: serverTimestamp(), // keep track of edits
-    });
+    try {
+      const entryRef = doc(db, "entries", id);
+
+      await updateDoc(entryRef, {
+        ...updatedData,
+        updatedAt: serverTimestamp(),
+      });
+    } catch (error) {
+      console.error("Error updating entry:", error);
+      throw error;
+    }
   };
 
   // Delete entry
   const deleteEntry = async (id) => {
-    await deleteDoc(doc(db, "entries", id));
+    try {
+      await deleteDoc(doc(db, "entries", id));
+    } catch (error) {
+      console.error("Error deleting entry:", error);
+      throw error;
+    }
   };
 
   // Get entry by ID
   const getEntryById = async (id) => {
-    const ref = doc(db, "entries", id);
-    const snapshot = await getDoc(ref);
-    return snapshot.exists()
-      ? { id: snapshot.id, ...snapshot.data() }
-      : null;
+    try {
+      const ref = doc(db, "entries", id);
+      const snapshot = await getDoc(ref);
+
+      return snapshot.exists()
+        ? { id: snapshot.id, ...snapshot.data() }
+        : null;
+    } catch (error) {
+      console.error("Error fetching entry:", error);
+      return null;
+    }
   };
 
   return {
