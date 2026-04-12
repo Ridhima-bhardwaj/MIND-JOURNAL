@@ -24,11 +24,12 @@ Welcome to **Mind Journal**, a minimal and intuitive journaling web app designed
 
 ## 🛠️ Tech Stack
 
-Frontend         React.js (Vite), JavaScript (ES6+), HTML5, CSS3
-State Management React Hooks (useState, useEffect)
-Backend / DB     Firebase Authentication, Cloud Firestore
-Deployment       Vercel
-
+| Layer            | Technology Used                              |
+|------------------|----------------------------------------------|
+| Frontend         | React.js (Vite), JavaScript (ES6+), HTML5, CSS3 |
+| State Management | React Hooks (useState, useEffect)            |
+| Backend / DB     | Firebase Authentication, Cloud Firestore     |
+| Deployment       | Vercel                                       |
 ---
 
 ## 📂 Project Structure
