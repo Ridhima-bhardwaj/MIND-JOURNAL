@@ -24,11 +24,10 @@ Welcome to **Mind Journal**, a minimal and intuitive journaling web app designed
 
 ## 🛠️ Tech Stack
 
-| Layer            | Technology Used                                |
-|-------------------|-----------------------------------------------|
-| **Frontend**     | HTML, CSS, JavaScript *(or React if used)*     |
-| **Backend / DB** | Firebase (Authentication & Firestore)         |
-| **Hosting**      | Firebase Hosting / Netlify / Vercel           |
+Frontend         React.js (Vite), JavaScript (ES6+), HTML5, CSS3
+State Management React Hooks (useState, useEffect)
+Backend / DB     Firebase Authentication, Cloud Firestore
+Deployment       Vercel
 
 ---
 
